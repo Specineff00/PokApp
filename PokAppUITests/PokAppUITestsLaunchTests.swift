@@ -8,7 +8,6 @@
 import XCTest
 
 final class PokAppUITestsLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

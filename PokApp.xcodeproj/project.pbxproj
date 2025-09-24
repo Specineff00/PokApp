@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5460850D2E840FEB0061923A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5460850C2E840FEB0061923A /* ComposableArchitecture */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		546084EF2E840FDC0061923A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5460850D2E840FEB0061923A /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = PokApp;
 			packageProductDependencies = (
+				5460850C2E840FEB0061923A /* ComposableArchitecture */,
 			);
 			productName = PokApp;
 			productReference = 546084E02E840FDB0061923A /* PokApp.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 546084D72E840FDB0061923A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5460850B2E840FEB0061923A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 546084E12E840FDB0061923A /* Products */;
 			projectDirPath = "";
@@ -593,6 +602,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5460850B2E840FEB0061923A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.22.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5460850C2E840FEB0061923A /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5460850B2E840FEB0061923A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 546084D82E840FDB0061923A /* Project object */;
 }
