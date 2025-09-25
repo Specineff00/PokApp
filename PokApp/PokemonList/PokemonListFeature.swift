@@ -1,32 +1,4 @@
 import ComposableArchitecture
-import SwiftUI
-
-@ViewAction(for: PokemonListFeature.self)
-struct PokemonListView: View {
-    let store: StoreOf<PokemonListFeature>
-
-    var body: some View {
-        List {
-            Text("Pokemon!!")
-
-            store.pokemonList.map { list in
-                ForEach(list.results) { pokemon in
-                    Button(action: {
-                        send(.onTapPokemon(pokemon.name))
-                    }) {
-                        Text(pokemon.name)
-                    }
-                }
-            }
-        }
-        .onAppear {
-            send(.onAppear)
-        }
-        .refreshable {
-            send(.onRefresh)
-        }
-    }
-}
 
 @Reducer
 struct PokemonListFeature {
@@ -69,7 +41,6 @@ struct PokemonListFeature {
             case let .onReceivePokemonList(result):
                 switch result {
                 case let .success(list):
-                    print(list)
                     state.pokemonList = list
                     return .none
 

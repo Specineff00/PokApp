@@ -1,5 +1,4 @@
 import ComposableArchitecture
-import SwiftUI
 
 @Reducer
 struct PokemonDetailFeature {
@@ -37,6 +36,7 @@ struct PokemonDetailFeature {
             case let .onReceivePokemon(result):
                 switch result {
                 case let .success(pokemon):
+                    print(pokemon)
                     state.pokemon = pokemon
                     return .none
 
@@ -60,20 +60,5 @@ struct PokemonDetailFeature {
                 )
             )
         }
-    }
-}
-
-@ViewAction(for: PokemonDetailFeature.self)
-struct PokemonDetailView: View {
-    let store: StoreOf<PokemonDetailFeature>
-
-    var body: some View {
-        Text(store.name)
-            .onAppear {
-                send(.onAppear)
-            }
-            .refreshable {
-                send(.onRefresh)
-            }
     }
 }

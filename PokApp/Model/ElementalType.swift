@@ -1,5 +1,6 @@
 import Foundation
 
-struct ElementalType: Decodable, Equatable {
-    let name: String
+struct ElementalType: Decodable, Equatable, Identifiable {
+    let type: Species
+    var id: String { type.name }
 }
