@@ -6,12 +6,33 @@ struct PokemonListFeature {
     struct State: Equatable {
         var pokemonList: PokemonList?
         var pokemonDetailFeature: PokemonDetailFeature.State?
+        var isLoading = false
+        var isError = false
+        @Presents var alert: AlertState<Action.Alert>?
+        
+        var alertState: AlertState<Action.Alert> {
+            AlertState {
+                TextState("Woops")
+            } actions: {
+                ButtonState(role: .cancel) {
+                    TextState("OK")
+                }
+            } message: {
+                TextState("something went wrong!")
+            }
+        }
     }
 
     enum Action: Equatable, ViewAction {
         case view(View)
         case delegate(Delegate)
         case onReceivePokemonList(TaskResult<PokemonList>)
+        case alert(PresentationAction<Alert>)
+
+        @CasePathable
+        enum Alert {
+          case okTapped
+        }
 
         enum View: Equatable {
             case onAppear
@@ -32,6 +53,8 @@ struct PokemonListFeature {
             case let .view(viewAction):
                 switch viewAction {
                 case .onAppear, .onRefresh:
+                    state.isLoading = true
+                    state.isError = false
                     return loadPokemonList()
 
                 case let .onTapPokemon(name):
@@ -39,22 +62,23 @@ struct PokemonListFeature {
                 }
 
             case let .onReceivePokemonList(result):
+                state.isLoading = false
                 switch result {
                 case let .success(list):
                     state.pokemonList = list
                     return .none
 
-                case let .failure(error):
-                    if let error = error as? PokAppError {
-                        print(error)
-                    }
+                case .failure:
+                    state.alert = state.alertState
+                    state.isError = true
                     return .none
                 }
 
-            case .delegate:
+            case .delegate, .alert:
                 return .none
             }
         }
+        .ifLet(\.$alert, action: \.alert)
     }
 
     private func loadPokemonList() -> EffectOf<Self> {
