@@ -9,7 +9,7 @@ struct PokemonListFeature {
         var isLoading = false
         var isError = false
         @Presents var alert: AlertState<Action.Alert>?
-        
+
         var alertState: AlertState<Action.Alert> {
             AlertState {
                 TextState("Woops")
@@ -31,7 +31,7 @@ struct PokemonListFeature {
 
         @CasePathable
         enum Alert {
-          case okTapped
+            case okTapped
         }
 
         enum View: Equatable {

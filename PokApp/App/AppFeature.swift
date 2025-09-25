@@ -2,7 +2,7 @@ import ComposableArchitecture
 
 @Reducer
 struct AppFeature {
-    @Reducer
+    @Reducer(state: .equatable, action: .equatable)
     enum Path {
         case detail(PokemonDetailFeature)
     }
@@ -13,7 +13,7 @@ struct AppFeature {
         var pokemonList = PokemonListFeature.State()
     }
 
-    enum Action {
+    enum Action: Equatable {
         case path(StackActionOf<Path>)
         case pokemonList(PokemonListFeature.Action)
     }
@@ -37,5 +37,3 @@ struct AppFeature {
         .forEach(\.path, action: \.path)
     }
 }
-
-extension AppFeature.Path.State: Equatable {}

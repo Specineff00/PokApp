@@ -8,7 +8,7 @@ struct PokemonListView: View {
     var body: some View {
         List {
             Text("Pokemon!!")
-            
+
             if store.isError {
                 Text("Could not load! Pull to refresh!")
             } else {

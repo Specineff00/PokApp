@@ -11,7 +11,6 @@ struct PokemonDetailView: View {
                 Text(store.name.capitalized)
                     .font(.headline)
                     .padding()
-                
 
                 if store.isError {
                     Text("Could not load! Pull to refresh!")
@@ -28,7 +27,7 @@ struct PokemonDetailView: View {
         }
         .alert($store.scope(state: \.alert, action: \.alert))
     }
-    
+
     private func pokemonStats(_ pokemon: Pokemon) -> some View {
         Group {
             HStack {

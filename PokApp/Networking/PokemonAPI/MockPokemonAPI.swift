@@ -1,22 +1,22 @@
 import Foundation
 
 struct MockPokemonAPI: PokemonAPI {
-    var pokemonList: () throws -> PokemonList
-    var pokemon: (String) throws -> Pokemon
+    let pokemonListResult: () throws -> PokemonList
+    let pokemonResult: (String) throws -> Pokemon
 
     init(
-        pokemonList: @escaping () throws -> PokemonList,
-        pokemon: @escaping (String) throws -> Pokemon
+        pokemonList: @escaping () throws -> PokemonList = { .mock() },
+        pokemon: @escaping (String) throws -> Pokemon = { _ in .mock() }
     ) {
-        self.pokemonList = pokemonList
-        self.pokemon = pokemon
+        pokemonListResult = pokemonList
+        pokemonResult = pokemon
     }
 
     func fetchPokemonList() async throws -> PokemonList {
-        try pokemonList()
+        try pokemonListResult()
     }
 
     func fetchPokemon(name: String) async throws -> Pokemon {
-        try pokemon(name)
+        try pokemonResult(name)
     }
 }
