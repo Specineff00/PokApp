@@ -1,10 +1,3 @@
-//
-//  PokemonEntryPoint.swift
-//  Pokemonik
-//
-//  Created by Yogesh Nikash Ramsorrun on 19/09/2022.
-//
-
 import Foundation
 
 struct PokemonEntryPoint: Decodable, Equatable, Identifiable {

@@ -1,10 +1,3 @@
-//
-//  PokemonList.swift
-//  PokApp
-//
-//  Created by Nikash Yogesh Ramsorrun on 24/09/2025.
-//
-
 import Foundation
 
 struct PokemonList: Decodable, Equatable {

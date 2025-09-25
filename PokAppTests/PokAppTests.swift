@@ -1,10 +1,3 @@
-//
-//  PokAppTests.swift
-//  PokAppTests
-//
-//  Created by Nikash Yogesh Ramsorrun on 24/09/2025.
-//
-
 import XCTest
 
 final class PokAppTests: XCTestCase {

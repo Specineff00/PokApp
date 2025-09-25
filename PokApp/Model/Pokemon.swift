@@ -1,10 +1,3 @@
-//
-//  Pokemon.swift
-//  PokApp
-//
-//  Created by Nikash Yogesh Ramsorrun on 24/09/2025.
-//
-
 import Foundation
 
 struct Pokemon: Decodable, Equatable {
