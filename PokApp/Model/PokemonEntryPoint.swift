@@ -7,7 +7,7 @@ struct PokemonEntryPoint: Decodable, Equatable, Identifiable {
 
 extension PokemonEntryPoint {
     static func mock(
-        name: String = "Squirtle"
+        name: String = "squirtle"
     ) -> Self {
         .init(name: name)
     }
@@ -16,10 +16,10 @@ extension PokemonEntryPoint {
 extension [PokemonEntryPoint] {
     static var mocks: Self {
         [
-            .init(name: "Squirtle"),
-            .init(name: "Pikachu"),
-            .init(name: "Blastoise"),
-            .init(name: "Cubone"),
+            .init(name: "squirtle"),
+            .init(name: "pikachu"),
+            .init(name: "blastoise"),
+            .init(name: "cubone"),
         ]
     }
 }

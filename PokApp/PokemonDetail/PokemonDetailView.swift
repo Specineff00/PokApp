@@ -4,6 +4,7 @@ import SwiftUI
 @ViewAction(for: PokemonDetailFeature.self)
 struct PokemonDetailView: View {
     @Bindable var store: StoreOf<PokemonDetailFeature>
+    let imageHeight: CGFloat = 200
 
     var body: some View {
         ScrollView {
@@ -37,7 +38,7 @@ struct PokemonDetailView: View {
                         phase.image?
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(height: 200)
+                            .frame(height: imageHeight)
                     }
                 }
 
@@ -47,7 +48,7 @@ struct PokemonDetailView: View {
                         phase.image?
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(height: 200)
+                            .frame(height: imageHeight)
                     }
                 }
             }

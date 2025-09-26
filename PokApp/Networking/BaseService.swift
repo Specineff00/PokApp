@@ -24,7 +24,6 @@ actor LiveBaseService: BaseServiceProtocol {
             decoder.dateDecodingStrategy = .iso8601
             return try decoder.decode(R.ReturnType.self, from: data)
         } catch {
-            print(error)
             throw PokAppError.decodeError
         }
     }

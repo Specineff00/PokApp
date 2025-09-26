@@ -5,22 +5,10 @@ struct PokemonListFeature {
     @ObservableState
     struct State: Equatable {
         var pokemonList: PokemonList?
-        var pokemonDetailFeature: PokemonDetailFeature.State?
         var isLoading = false
         var isError = false
         @Presents var alert: AlertState<Action.Alert>?
-
-        var alertState: AlertState<Action.Alert> {
-            AlertState {
-                TextState("Woops")
-            } actions: {
-                ButtonState(role: .cancel) {
-                    TextState("OK")
-                }
-            } message: {
-                TextState("something went wrong!")
-            }
-        }
+        var alertState: AlertState<Action.Alert> = .defaultPokApp
     }
 
     enum Action: Equatable, ViewAction {
